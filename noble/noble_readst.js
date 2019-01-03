@@ -50,7 +50,11 @@ function onServicesAndCharacteristicsDiscovered(error, services, characteristics
   console.log('Discovered services and characteristics');
   const echoCharacteristic = characteristics[0];
 
-
+  // data callback receives notifications
+  echoCharacteristic.on('data', (data, isNotification) => {
+    console.log('Received: "' + data + '"');
+  });
+  
   // create an interval to send data to the service
   let count = 0;
   setInterval(() => {
