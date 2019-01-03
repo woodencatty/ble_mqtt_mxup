@@ -30,16 +30,10 @@ BatteryLevelCharacteristic.prototype.onReadRequest = function(offset, callback) 
 };
 
 BatteryLevelCharacteristic.prototype.onWriteRequest = function(data, offset, withoutResponse, callback) {
-  console.log(data);
-
-  if (offset) {
-    callback(this.RESULT_ATTR_NOT_LONG);
-  } else if (data.length !== 3) {
-    callback(this.RESULT_INVALID_ATTRIBUTE_LENGTH);
-  } else {
    console.log(data);
+   console.log(offset)
       callback(this.RESULT_SUCCESS);
-  }
+  
 };
 
 module.exports = BatteryLevelCharacteristic;
