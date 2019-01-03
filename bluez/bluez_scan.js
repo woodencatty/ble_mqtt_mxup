@@ -6,11 +6,8 @@ const bluetooth = new Bluez();
 bluetooth.on('device', async (address, props) => {
     
     console.log("Found new Device " + address + " " + props.Name);
-    if(props.Name == "Beoplay E8"){
-        var adapter_tmp = bluetooth.getAdapter('hci0');
+    if(props.Name == "Battery"){
         console.log(props);
-        var device = bluetooth.getDevice(address);
-        adapter_tmp.RemoveDevice("device");
     }
     
 });
