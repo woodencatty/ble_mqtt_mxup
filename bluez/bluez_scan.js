@@ -18,7 +18,7 @@ bluetooth.init().then(async ()=>{
     // listen on first bluetooth adapter
     var adapter = await bluetooth.getAdapter('hci0');
     //await adapter.StartDiscovery();
-    adapter.RemoveDevice("50:B7:3D:C9:2F:6F");
+    await adapter.StopDiscovery();
     console.log("Discovering");
 });
 
