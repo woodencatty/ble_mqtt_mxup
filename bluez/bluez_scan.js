@@ -16,6 +16,7 @@ bluetooth.on('device', async (address, props) => {
 // Initialize bluetooth interface
 bluetooth.init().then(async ()=>{
     var remove = '51:71:F8:12:30:26';
+    console.log(typeof remove);
     // listen on first bluetooth adapter
     var adapter = await bluetooth.getAdapter('hci0');
     await adapter.StartDiscovery();
