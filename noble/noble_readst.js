@@ -65,8 +65,6 @@ function onServicesAndCharacteristicsDiscovered(error, services, characteristics
    //   console.log(error);
    //   console.log(data);
    // });
-    echoCharacteristic.write(message, (error)=>{
-      console.log(error);
-    });
+    echoCharacteristic.write(message);
   }, 2500);
 }
