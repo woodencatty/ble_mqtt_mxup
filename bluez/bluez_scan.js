@@ -13,7 +13,7 @@ bluetooth.on('device', async (address, props) => {
 bluetooth.init().then(async ()=>{
     // listen on first bluetooth adapter
     const adapter = await bluetooth.getAdapter('hci0');
-    await adapter.RemoveDevice("*");
+    //await adapter.RemoveDevice("*");
     await adapter.StartDiscovery();
     console.log("Discovering");
 });
