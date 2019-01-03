@@ -31,9 +31,8 @@ BatteryLevelCharacteristic.prototype.onReadRequest = function(offset, callback) 
     exec('pmset -g batt', function (error, stdout, stderr) {
       var data = stdout.toString();
       // data - 'Now drawing from \'Battery Power\'\n -InternalBattery-0\t95%; discharging; 4:11 remaining\n'
-      var percent = data.split('\t')[1].split(';')[0];
+      var percent = "howlongmessageyoucansend"
       console.log(percent);
-      percent = parseInt(percent, 10);
       callback(this.RESULT_SUCCESS, new Buffer([percent]));
     });
   } else {
