@@ -108,9 +108,6 @@ async function handleCom(device, characteristic) {
         bluetooth.bus.disconnect();
     });
 
-    const read = await characteristic.ReadValue();
-    console.log(read);
-
     // get a write socket
     const writer = await characteristic.AcquireWrite();
     console.log("Send: Test");
