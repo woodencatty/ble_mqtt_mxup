@@ -37,7 +37,7 @@ BatteryLevelCharacteristic.prototype.onReadRequest = function(offset, callback) 
     });
   } else {
     // return hardcoded value
-    callback(this.RESULT_SUCCESS, new Buffer([98]));
+    callback(this.RESULT_SUCCESS, new Buffer("howlongmessageyoucansend"));
   }
 };
 
