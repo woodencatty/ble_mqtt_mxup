@@ -7,7 +7,6 @@ bluetooth.on('device', async (address, props) => {
     console.log("Found new Device " + address + " " + props.Name);
     if(props.Name == "Beoplay E8"){
         console.log(props);
-        await adapter.RemoveDevice(props);
     }
 });
  
@@ -16,6 +15,7 @@ bluetooth.on('device', async (address, props) => {
 bluetooth.init().then(async ()=>{
     // listen on first bluetooth adapter
     const adapter = await bluetooth.getAdapter('hci0');
+    await adapter.RemoveDevice();
     await adapter.StartDiscovery();
     console.log("Discovering");
 });
