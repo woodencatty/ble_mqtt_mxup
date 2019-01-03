@@ -14,7 +14,6 @@ noble.on('stateChange', function(state) {
 noble.on('discover', function(peripheral) {
     if(peripheral.advertisement.localName == "Battery"){
 
-  if (peripheral.id === peripheralIdOrAddress || peripheral.address === peripheralIdOrAddress) {
     noble.stopScanning();
 
     console.log('peripheral with ID ' + peripheral.id + ' found');
@@ -50,7 +49,7 @@ noble.on('discover', function(peripheral) {
 
     explore(peripheral);
   }
-}
+
 });
 
 function explore(peripheral) {
