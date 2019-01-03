@@ -9,16 +9,12 @@ var Characteristic = bleno.Characteristic;
 
 var BatteryLevelCharacteristic = function() {
   BatteryLevelCharacteristic.super_.call(this, {
-    uuid: '2A19',
+    uuid: 'TEST',
     properties: ['read'],
     descriptors: [
       new Descriptor({
         uuid: '2901',
-        value: 'Battery level between 0 and 100 percent'
-      }),
-      new Descriptor({
-        uuid: '2904',
-        value: new Buffer([0x04, 0x01, 0x27, 0xAD, 0x01, 0x00, 0x00 ]) // maybe 12 0xC unsigned 8 bit
+        value: 'test me baby'
       })
     ]
   });
