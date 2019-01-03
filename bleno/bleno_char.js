@@ -33,7 +33,7 @@ BatteryLevelCharacteristic.prototype.onWriteRequest = function(data, offset, wit
 
   console.log(data.toString());
    console.log(offset)
-      callback(this.RESULT_SUCCESS);
+      callback(this.RESULT_UNLIKELY_ERROR);
   
 };
 
