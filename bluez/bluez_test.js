@@ -97,12 +97,25 @@ async function handleDevice(address, props) {
 }
 
 async function handleCom(device, characteristic) {
+    // get a notification socket
+    const not = await characteristic.AcquireNotify();
+    not.on("data", async (data) => {
+        console.log("Read: " + data.toString());
 
+        // end program on recv
+        not.end();
+        await device.Disconnect();
+        bluetooth.bus.disconnect();
+    });
 
     const read = await characteristic.ReadValue();
     console.log(read);
 
-
+    // get a write socket
+    const writer = await characteristic.AcquireWrite();
+    console.log("Send: Test");
+    writer.write("Test");
+    writer.end();
 }
 
 async function handleComOld(device, characteristic) {
