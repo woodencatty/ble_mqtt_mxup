@@ -1,21 +1,26 @@
 
-var util = require('util');
 
 var bleno = require('bleno');
+var BatteryService = require('./bleno_serivce');
 
-var BlenoPrimaryService = bleno.PrimaryService;
+var primaryService = new BatteryService();
 
-var BatteryLevelCharacteristic = require('./battery-level-characteristic');
+bleno.on('stateChange', function(state) {
+  console.log('on -> stateChange: ' + state);
 
-function BatteryService() {
-  BatteryService.super_.call(this, {
-      uuid: '180F',
-      characteristics: [
-          new BatteryLevelCharacteristic()
-      ]
-  });
-}
+  if (state === 'poweredOn') {
+    bleno.startAdvertising('Battery', [primaryService.uuid]);
+  } else {
+    bleno.stopAdvertising();
+  }
+});
 
-util.inherits(BatteryService, BlenoPrimaryService);
+bleno.on('advertisingStart', function(error) {
+  console.log('on -> advertisingStart: ' + (error ? 'error ' + error : 'success'));
 
-module.exports = BatteryService;
+  if (!error) {
+    bleno.setServices([primaryService], function(error){
+      console.log('setServices: '  + (error ? 'error ' + error : 'success'));
+    });
+  }
+});
