@@ -9,8 +9,8 @@ var Characteristic = bleno.Characteristic;
 
 var BatteryLevelCharacteristic = function() {
   BatteryLevelCharacteristic.super_.call(this, {
-    uuid: '2A63',
-    properties: ['read'],
+    uuid: '2A64',
+    properties: ['write'],
     descriptors: [
       new Descriptor({
         uuid: '2901',
@@ -26,12 +26,12 @@ var BatteryLevelCharacteristic = function() {
 
 util.inherits(BatteryLevelCharacteristic, Characteristic);
 
-BatteryLevelCharacteristic.prototype.onReadRequest = function(offset, callback) {
+BatteryLevelCharacteristic.prototype.onWriteRequest = function(data, offset, withoutResponse, callback) {
 
-    // return hardcoded value
-    callback(this.RESULT_SUCCESS, new Buffer("howlongmessageyoucansend"));
+  console.log(data.toString());
+   console.log(offset)
+      callback(this.RESULT_SUCCESS);
   
 };
-
 
 module.exports = BatteryLevelCharacteristic;
