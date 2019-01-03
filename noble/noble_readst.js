@@ -62,5 +62,6 @@ function onServicesAndCharacteristicsDiscovered(error, services, characteristics
     const message = new Buffer('hello, ble ' + count, 'utf-8');
     console.log("Sending:  '" + message + "'");
     echoCharacteristic.read();
+    echoCharacteristic.write(message);
   }, 2500);
 }
