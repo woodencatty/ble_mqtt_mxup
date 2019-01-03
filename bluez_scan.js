@@ -5,6 +5,7 @@ const bluetooth = new Bluez();
 // Register callback for new devices
 bluetooth.on('device', async (address, props) => {
     console.log("Found new Device " + address + " " + props.Name);
+    console.log(props);
 });
  
 // Initialize bluetooth interface
