@@ -5,7 +5,7 @@ var bleno = require('bleno');
 var BlenoPrimaryService = bleno.PrimaryService;
 
 var BatteryLevelCharacteristic = require('./bleno_char');
-var BatteryLevelCharacteristic2 = require('./bleno_char');
+var BatteryLevelCharacteristic2 = require('./bleno_char2');
 
 function BatteryService() {
   BatteryService.super_.call(this, {
