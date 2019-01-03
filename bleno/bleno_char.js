@@ -10,7 +10,7 @@ var Characteristic = bleno.Characteristic;
 var BatteryLevelCharacteristic = function() {
   BatteryLevelCharacteristic.super_.call(this, {
     uuid: '2A63',
-    properties: ['read'],
+    properties: ['read', 'write'],
     descriptors: [
       new Descriptor({
         uuid: '2901',
@@ -30,7 +30,8 @@ BatteryLevelCharacteristic.prototype.onReadRequest = function(offset, callback) 
 };
 
 BatteryLevelCharacteristic.prototype.onWriteRequest = function(data, offset, withoutResponse, callback) {
-   console.log(data);
+
+  console.log(data);
    console.log(offset)
       callback(this.RESULT_SUCCESS);
   
