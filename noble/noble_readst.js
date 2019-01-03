@@ -7,8 +7,8 @@
 //const noble = require('noble');
 const noble = require('noble');
 
-const ECHO_SERVICE_UUID = '180F';
-const ECHO_CHARACTERISTIC_UUID = '2A19';
+const ECHO_SERVICE_UUID = '180f';
+const ECHO_CHARACTERISTIC_UUID = '2a19';
 
 noble.on('stateChange', state => {
   if (state === 'poweredOn') {
