@@ -25,4 +25,3 @@ bluetooth.init().then(async ()=>{
     console.log("Discovering");
 });
 
-await
