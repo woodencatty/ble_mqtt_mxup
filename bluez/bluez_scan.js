@@ -17,7 +17,7 @@ bluetooth.on('device', async (address, props) => {
 bluetooth.init().then(async ()=>{
     // listen on first bluetooth adapter
     var adapter = await bluetooth.getAdapter('hci0');
-    //await adapter.StartDiscovery();
+    await adapter.StartDiscovery();
     await adapter.StopDiscovery();
     console.log("Discovering");
 });
