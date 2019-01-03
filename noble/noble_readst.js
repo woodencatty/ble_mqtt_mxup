@@ -8,7 +8,7 @@
 const noble = require('noble');
 
 const ECHO_SERVICE_UUID = '180f';
-const ECHO_CHARACTERISTIC_UUID = '1a64';
+const ECHO_CHARACTERISTIC_UUID = '1a63';
 
 noble.on('stateChange', state => {
   if (state === 'poweredOn') {
@@ -61,10 +61,10 @@ function onServicesAndCharacteristicsDiscovered(error, services, characteristics
     count++;
     const message = new Buffer("왜안되는거였음?", 'utf-8');
     console.log("Sending:  '" + message + "'");
-   // echoCharacteristic.read((error, data)=>{
-   //   console.log(error);
-   //   console.log(data);
-   // });
-    echoCharacteristic.write(message);
+   echoCharacteristic.read((error, data)=>{
+      console.log(error);
+      console.log(data);
+    });
+    //echoCharacteristic.write(message);
   }, 2500);
 }
