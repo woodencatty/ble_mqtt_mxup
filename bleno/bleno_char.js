@@ -23,17 +23,21 @@ var BatteryLevelCharacteristic = function() {
 util.inherits(BatteryLevelCharacteristic, Characteristic);
 
 BatteryLevelCharacteristic.prototype.onReadRequest = function(offset, callback) {
-  if (os.platform() === 'darwin') {
-    exec('pmset -g batt', function (error, stdout, stderr) {
-      var data = stdout.toString();
-      // data - 'Now drawing from \'Battery Power\'\n -InternalBattery-0\t95%; discharging; 4:11 remaining\n'
-      var percent = "howlongmessageyoucansend"
-      console.log(percent);
-      callback(this.RESULT_SUCCESS, new Buffer([percent]));
-    });
-  } else {
+
     // return hardcoded value
     callback(this.RESULT_SUCCESS, new Buffer("howlongmessageyoucansend"));
+  
+};
+
+BatteryLevelCharacteristic.prototype.onWriteRequest = function(data, offset, withoutResponse, callback) {
+  if (offset) {
+    callback(this.RESULT_ATTR_NOT_LONG);
+  } else if (data.length !== 3) {
+    callback(this.RESULT_INVALID_ATTRIBUTE_LENGTH);
+  } else {
+   console.log(data);
+
+      callback(this.RESULT_SUCCESS);
   }
 };
 
