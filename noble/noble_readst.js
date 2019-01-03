@@ -50,19 +50,6 @@ function onServicesAndCharacteristicsDiscovered(error, services, characteristics
   console.log('Discovered services and characteristics');
   const echoCharacteristic = characteristics[0];
 
-  // data callback receives notifications
-  echoCharacteristic.on('data', (data, isNotification) => {
-    console.log('Received: "' + data + '"');
-  });
-  
-  // subscribe to be notified whenever the peripheral update the characteristic
-  echoCharacteristic.subscribe(error => {
-    if (error) {
-      console.error('Error subscribing to echoCharacteristic');
-    } else {
-      console.log('Subscribed for echoCharacteristic notifications');
-    }
-  });
 
   // create an interval to send data to the service
   let count = 0;
