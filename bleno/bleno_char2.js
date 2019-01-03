@@ -9,7 +9,7 @@ var Characteristic = bleno.Characteristic;
 
 var BatteryLevelCharacteristic = function() {
   BatteryLevelCharacteristic.super_.call(this, {
-    uuid: '2A64',
+    uuid: '1A64',
     properties: ['write'],
     descriptors: [
       new Descriptor({
