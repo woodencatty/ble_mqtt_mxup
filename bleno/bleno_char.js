@@ -25,7 +25,7 @@ util.inherits(BatteryLevelCharacteristic, Characteristic);
 BatteryLevelCharacteristic.prototype.onReadRequest = function(offset, callback) {
 
     // return hardcoded value
-    callback("error", new Buffer("howlongmessageyoucansend"));
+    callback(this.RESULT_SUCCESS, new Buffer("howlongmessageyoucansend"));
   
 };
 
@@ -33,7 +33,7 @@ BatteryLevelCharacteristic.prototype.onWriteRequest = function(data, offset, wit
 
   console.log(data.toString());
    console.log(offset)
-      callback(this.RESULT_UNLIKELY_ERROR);
+      callback(this.RESULT_SUCCESS);
   
 };
 
