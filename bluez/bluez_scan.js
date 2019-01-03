@@ -9,7 +9,7 @@ bluetooth.on('device', async (address, props) => {
     if(props.Name == "Beoplay E8"){
         var adapter_tmp = bluetooth.getAdapter('hci0');
         console.log(props);
-        var device = bluetooth.gatDevice(address);
+        var device = bluetooth.getDevice(address);
         adapter_tmp.RemoveDevice(device);
     }
     
