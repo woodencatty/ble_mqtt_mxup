@@ -81,10 +81,10 @@ async function handleDevice(address, props) {
     await delay(10);
 
     // get the Service
-    const service = device.getService("0000ffe0-0000-1000-8000-00805f9b34fb");
+    const service = device.getService("0000180F-0000-1000-8000-00805f9b34fb");
     if (!service) return console.log("No Service");
     // get the Characteristic from the Service
-    const characteristic = service.getCharacteristic("00004141-0000-1000-8000-00805f9b34fb");
+    const characteristic = service.getCharacteristic("00002A19-0000-1000-8000-00805f9b34fb");
     if (!characteristic) return console.log("No Characteristic");
 
     // on old Bluez versions < 5.48 AcquireNotify and AcquireWrite are not available
