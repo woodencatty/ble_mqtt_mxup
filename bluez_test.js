@@ -33,7 +33,7 @@ class BluezAgent extends Bluez.Agent {
 // Register callback for new devices
 bluetooth.on('device', (address, props) => {
     // apply some filtering
-    if (props.Name !== "HM10") return;
+    if (props.Name !== "Battery") return;
     handleDevice(address, props).catch(console.error);
 });
 
