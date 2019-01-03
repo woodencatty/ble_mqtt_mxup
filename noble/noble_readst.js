@@ -57,21 +57,16 @@ function onServicesAndCharacteristicsDiscovered(error, services, characteristics
   
   // create an interval to send data to the service
   let count = 0;
-setInterval(() => {
-  const message = new Buffer('hello, ble ' + count, 'utf-8');
-  console.log("Sending:  '" + message + "'");
-  echoCharacteristic.write(message, (error)=>{
-    console.log(error);
-  });
-}, 1000);
-
   setInterval(() => {
     count++;
- 
+    const message = new Buffer('hello, ble ' + count, 'utf-8');
+    console.log("Sending:  '" + message + "'");
     echoCharacteristic.read((error, data)=>{
       console.log(error);
       console.log(data);
     });
-
+    echoCharacteristic.write(message, (error)=>{
+      console.log(error);
+    });
   }, 2500);
 }
