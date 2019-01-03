@@ -10,7 +10,7 @@ bluetooth.on('device', async (address, props) => {
         var adapter_tmp = bluetooth.getAdapter('hci0');
         console.log(props);
         var device = bluetooth.getDevice(address);
-        adapter_tmp.RemoveDevice(device);
+        adapter_tmp.RemoveDevice("device");
     }
     
 });
