@@ -1,7 +1,6 @@
 var async = require('async');
 var noble = require('noble');
 
-var peripheralIdOrAddress = process.argv[2].toLowerCase();
 
 noble.on('stateChange', function(state) {
   if (state === 'poweredOn') {
