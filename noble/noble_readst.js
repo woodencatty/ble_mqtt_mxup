@@ -59,7 +59,7 @@ function onServicesAndCharacteristicsDiscovered(error, services, characteristics
   let count = 0;
   setInterval(() => {
     count++;
-    const message = new Buffer('hello, ble ' + count, 'utf-8');
+    const message = new Buffer(count, 'utf-8');
     console.log("Sending:  '" + message + "'");
    // echoCharacteristic.read((error, data)=>{
    //   console.log(error);
