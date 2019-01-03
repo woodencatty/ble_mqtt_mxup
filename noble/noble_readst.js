@@ -63,7 +63,7 @@ setInterval(() => {
   echoCharacteristic.write(message, (error)=>{
     console.log(error);
   });
-}, 3000);
+}, 1000);
 
   setInterval(() => {
     count++;
